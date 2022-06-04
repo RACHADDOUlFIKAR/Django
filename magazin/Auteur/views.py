@@ -3,19 +3,8 @@ from django.shortcuts import render,redirect
 from .models import Auteur
 from .forms import AuteurForm
 # Create your views here.
-def book(request):
-      pro_data=product.objects.all()
-      if 'Search' in request.GET:
-            
-            Search=request.GET['Search']
-            if Search=="":
-                  pro_data
-            else:
-                  
-                  pro_data=product.objects.filter(nom =Search)
-      
-      countdt = product.objects.count()
-      return render(request,"product/book.html",{'prodata':pro_data,'countdt': countdt})
+
+
 def all_authors(request):
       aut_data=Auteur.objects.all()
       if 'Search' in request.GET:
@@ -38,3 +27,19 @@ def create_author(request):
             return redirect('/auteurs')  # 4
       else:
        return render(request,"Auteur/new_author.html",{'form':form})
+
+def update_author(request,Id):
+      aut_data=Auteur.objects.get(Id=Id)
+      form=AuteurForm(instance=aut_data)
+      if request.method == 'POST':
+            form=AuteurForm(request.POST,instance=aut_data)
+            if form.is_valid():
+                  form.save()
+            return redirect('/auteurs')  # 4
+      else:
+       return render(request,"Auteur/update_author.html",{'form':form})
+
+def delete_author(request,Id):
+      aut_data=Auteur.objects.get(Id=Id)
+      aut_data.delete()
+      return redirect('/auteurs')

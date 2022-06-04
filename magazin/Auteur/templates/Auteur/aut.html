@@ -28,8 +28,8 @@
 <td>{{aut.Tel}}</td>
 <td>{{aut.Cin}}</td>
 <td>{{aut.Email}}</td>
-<td ><a href="{% url 'update' aut.Id %}" class="btn btn-outline-success" >modifier</a> 
-<a href="/delete/{{aut.Id}}" class="btn btn-outline-danger" onclick="return confirm('vous voulez vraiment supprimer cet Auteur?');">Supprimer</a> 
+<td ><a href="{% url 'update_author' aut.Id %}" class="btn btn-outline-success" >modifier</a> 
+<a href="delete_author/{{aut.Id}}" class="btn btn-outline-danger" onclick="return confirm('vous voulez vraiment supprimer cet Auteur?');"> Supprimer</a> 
 </td>
   
   </tr>{% endfor %}
