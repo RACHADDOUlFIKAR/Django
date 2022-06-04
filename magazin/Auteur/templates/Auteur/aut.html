@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Auteurs{% endblock %}
+{% block head %}Auteurs{% endblock%}
+{% block titre %}Auteurs{% endblock %}
+{% block search %} 
+<form >
+    <div class="search-box">
+      <input type="text"  placeholder="Search..." name="Search">
+      <a ><button name="" class='bx bx-search' ></button> </a>
+    </div>
+</form>{% endblock %}
+
+  {% block content %} 
+  <tr><a href="/addauthor" class="w3-button w3-blue" >Ajouter un Auteur </a>  <i class="fa fa-plus" style="color:#61B2FB;padding-left: 5px;font-size: 14px;font-weight: 500;"></i></button>
+<div class="table-wrapper">
+    <table class="fl-table">
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Téléphone</th>
+    <th>Cin</th>
+    <th>Email</th>
+    <th>Opération</th>
+    {% if aut_data %}
+{% for aut in aut_data %}
+<tr>
+<td>{{aut.Id}}</td>
+<td>{{aut.Nom}}</td>
+<td>{{aut.Tel}}</td>
+<td>{{aut.Cin}}</td>
+<td>{{aut.Email}}</td>
+<td ><a href="{% url 'update' aut.Id %}" class="btn btn-outline-success" >modifier</a> 
+<a href="/delete/{{aut.Id}}" class="btn btn-outline-danger" onclick="return confirm('vous voulez vraiment supprimer cet Auteur?');">Supprimer</a> 
+</td>
+  
+  </tr>{% endfor %}
+{% endif %}{% endblock %}
+  
