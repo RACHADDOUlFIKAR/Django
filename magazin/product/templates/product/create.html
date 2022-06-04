@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Inserer livre{% endblock %}
+{% block titre %}Add book{% endblock %}
+{% block head %}Ajouter book{% endblock%}
+{% load crispy_forms_tags %} 
+{% block content %} 
+<div  style="width: 500px;margin-left: 31%;">
+    <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form|crispy }}
+        <br>
+        
+		<button type="submit" class="btn btn-primary" style="width: 30%;margin-left: 32%;">Enregister</button>
+    <form>
+</div>
+  
+{% endblock %}

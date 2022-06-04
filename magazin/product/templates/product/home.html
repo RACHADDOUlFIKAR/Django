@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% block title %}Acceuil{% endblock %}
+{% block head %}Acceuil{% endblock%}
+{% block titre %}Popular Books{% endblock %} 
+{% block search %} 
+<form method="get">
+  {% csrf_token %}
+  <div class="search-box">
+    <input type="text"  placeholder="Search..." name="Search" id="Search " >
+    <a ><button name="" class='bx bx-search' ></button> </a>
+    
+  </div>
+</form>{% endblock %}
+{% block content %} 
+
+<div class="table-wrapper">
+  <table class="fl-table">
+           
+  
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Prix</th>
+    {% if prodata %}
+    {% for pro in prodata %}
+   
+    <tr>
+      <td>{{pro.id}}</td>
+      <td>{{pro.nom}}</td>
+      <td>{{pro.prix}} DH</td>
+    
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td>Ce Livre N'existe pas</td>
+      </tr>
+      
+    </tr>
+    
+      
+    
+    {% endif %}
+         <tr>
+           <td></td>
+           <td></td>
+           <td ><a   href="{% url 'book' %}" class="btn btn-primary">voir tous</a></td></tr>
+        
+  </table>
+</div>
+
+<div style="margin-top: 50px;">
+<div class="card" style="width: 15%;position: absolute;left: 10%;">
+  <i class="fa fa-tasks fa-5x " style="text-align: center;padding: 30px;font-size: 1000%;color: #1ABC9C;"></i>  <div class="card-body">
+    <h5 class="card-title" style="text-align: center;">Totale Arcticles</h5>
+    <p class="card-text"><b></b></p>
+    <a href="" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
+  </div>
+
+
+</div>
+ <div class="card" style="position: absolute;left: 40%;width: 15%;">
+  <i  class="fa fa-users fa-5x" style="text-align: center;padding: 30px;font-size: 1000%;color: #1ABC9C;"></i>
+  <div class="card-body">
+    <h5 class="card-title" style="text-align: center;">Totale Fournisseurs</h5>
+    <p class="card-text"><b></b></p>
+    <a href="" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
+  </div>
+
+
+</div>
+<div class="card" style="width: 15%;position: absolute;left: 70%;">
+  <i class="fa fa-book fa-5x " style="text-align: center;padding: 30px;font-size: 1000%;color: #1ABC9C;"></i>
+  <div class="card-body">
+    <h5 class="card-title" style="text-align: center;">Totale Livres :</h5>
+    <p class="card-text" style="text-align: center;font-size: 40px;"><b>{{ countdt }}</b></p>
+    <a href="{% url 'book' %}" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+
+
+
