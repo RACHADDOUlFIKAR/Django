@@ -3,8 +3,8 @@
 {% block head %}Books{% endblock%}
 {% block titre %}ALL Books{% endblock %}
 {% block search %} 
-<form >
-  
+<form method="post">
+  {% csrf_token %}
   <div class="search-box">
     <input type="text"  placeholder="Search..." name="Search">
     <a ><button name="" class='bx bx-search' ></button> </a>
@@ -13,7 +13,7 @@
 </form>{% endblock %}
  
 {% block content %} 
-<tr><a href="{% url 'create' %}" class="w3-button w3-blue" >Ajouter un bouquet</a>  <i class="fa fa-plus" style="color:#61B2FB;padding-left: 5px;font-size: 14px;font-weight: 500;"></i></button>
+<tr><a href="{% url 'create' %}" class="w3-button w3 " style="background-color:#3B90BA;color: white;" >Ajouter un bouquet</a>  <i class="fa fa-plus" style="color:#83BCD8;padding-left: 5px;font-size: 14px;font-weight: 500;"></i></button>
 <div class="table-wrapper">
   
   <table class="fl-table">
@@ -33,15 +33,18 @@
 <td>{{pro.nom}}</td>
 <td>{{pro.description}}</td>
 <td>{{pro.prix}} DH</td>
-<td><img src="{{pro.image.url}}" alt="{{pro.nom|add:' image'}}" width="150px" height="150px"></td>
+<td><img src="{{pro.image.url}}" alt="" width="150px" height="150px"></td>
 <td>{{pro.ecrivain}}</td>
 <td ><a href="{% url 'update' pro.id %}" class="btn btn-outline-success" >modifier</a> 
   <a href="/delete/{{pro.id}}" class="btn btn-outline-danger" onclick="return confirm('vous voulez vraiment supprimer ce Livre?');">Supprimer</a> 
 </td>
 
-</tr>{% endfor %}
+</tr>
+{% endfor %}
 {% else %}
 <tr>
   <td>Ce Livre N'existe pas</td>
 </tr>
-</table>{% endif %}{% endblock %}
+</table>{% endif %}
+
+{% endblock %}

@@ -1,4 +1,5 @@
 from ast import NameConstant
+from multiprocessing import context
 from django.shortcuts import render,redirect
 
 
@@ -20,7 +21,11 @@ def home(request):
       
       
       countdt = product.objects.count()
-      return render(request,"product/home.html",{'prodata':pro_data,'countdt': countdt})
+      current_user=request.user
+      user_id=current_user.id
+      print(user_id)
+      
+      return render(request,"product/home.html",{'prodata':pro_data,'countdt': countdt,'user_id':user_id})
     
 def book(request):
       pro_data=product.objects.all()
@@ -34,7 +39,7 @@ def book(request):
                   pro_data=product.objects.filter(nom =Search)
       
       countdt = product.objects.count()
-      return render(request,"product/book.html",{'prodata':pro_data,'countdt': countdt})
+      return render(request,"product/book.html",      ,'countdt': countdt})
 def create(request):
       form=productForm
       if request.method == 'POST':

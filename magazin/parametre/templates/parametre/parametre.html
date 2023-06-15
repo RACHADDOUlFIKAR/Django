@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+{% block title %}Paramètre{% endblock %}
+{% block titre %}Paramètre{% endblock %}
+{% block head %}Gestion des Paramètres{% endblock%}
+{% load crispy_forms_tags %} 
+{% block content %}
+<div  style="margin-left: 29%;margin-top: 0%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+  <h4 style="padding-bottom: 50px;text-align: center;"> Change Password :</h4>
+<form action="" method="post">
+    {% csrf_token %}
+    
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">{{ error }}</div>
+    {% endfor %}
+      <input style="text-align:center ;margin-top: -7%;" class="form-control" id="floatingInput" type="text" value="{{ user.username }}" readonly><br><br>
+    
+        <div class="form-group">
+          {{ form|crispy }}
+          
+        </div>
+        {% if field.errors %}
+           <div class="alert alert-danger">
+             {{ field.errors }}
+           </div>
+        {% endif %}
+    
+
+
+    <button type="submit" class="btn btn-primary" style="width: 40%;margin-left: 30%;margin-top: 40px;">Change Password</button>
+    
+</form>
+
+<a href="{% url 'del' user.id%}" class="btn btn-outline-danger" style="width: 40%;margin-left: 30%;margin-top: 40px;">Delete Account</a>
+</div>
+
+{% endblock%}

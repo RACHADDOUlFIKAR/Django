@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Paramètre{% endblock %}
+{% block titre %} Paramètre{% endblock %}
+{% block head %}Gestion des Paramètres{% endblock%}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div  style="margin-left: 30%;margin-top: 5%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+<div class="alert alert-danger">Delete user confirm</div>
+  
+<form action="" method="post">
+    {% csrf_token %}
+
+   
+      <input style="text-align:center ;margin-top: 0%;" class="form-control" id="floatingInput" type="text" value="{{ user.username }}" readonly><br><br>
+      
+        <a href="{% url 'parametre' %}" class="btn btn-success" style="width: 12%;margin-left: 15%;position:absolute;top: auto;">Retour</a>
+        <button type="submit" class="btn btn-danger" style="width: 40%;margin-left: 10%;">Delete Account</button>
+        
+</form>
+</div>
+
+{% endblock%}

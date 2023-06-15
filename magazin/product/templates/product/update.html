@@ -4,8 +4,10 @@
 {% block head %}Modifier livre{% endblock%}
 {% load crispy_forms_tags %} 
 {% block content %} 
-<div  style="width: 500px;margin-left: 31%;">
-    <form method="post">
+<div  style="margin-left: 29%;margin-top: 3%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+  <h4 style="padding-bottom: 20px;text-align: center;margin-top: -8%;"> update Product :</h4>
+
+  <form method="post">
 		{% csrf_token %}
 		{{ form|crispy }}
         <br>

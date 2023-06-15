@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="../product/static/images/icons8-accueil-64.png">
     
   
-    <link rel="stylesheet" href="../../static/css/style1.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
     
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
@@ -32,28 +32,28 @@
           </a>
         </li>
         <li>
-          <a href="{% url 'book' %}"  class="{% if url_name == 'book' %}active{% endif %}">
+          <a href="{% url 'book' %}"  class="{% if url_name == 'book' or url_name == 'update' or url_name == 'create' %}active{% endif %}">
             <i class="bi bi-basket"></i>
             <span class="links_name">books <span style="font-family:cursive;font-weight: bold   ;"> {% if url_name == 'book' %}({{ countdt }}){% endif %}  </span></span>
           </a>
         </li>
         <li>
-          <a href="/auteurs">
+          <a href="{% url 'authors' %}" class="{% if url_name == 'authors' or url_name == 'new_author' or url_name == 'update_author' %}active{% endif %}">
             <i class="bi bi-menu-button-wide"></i>
-            <span class="links_name">Auteurs</span>
+            <span class="links_name">Auteurs <span style="font-family:cursive;font-weight: bold   ;"> {% if url_name == 'authors' %}({{ countdt }}){% endif %}  </span></span>
           </a>
         </li>
         
           
         <li>
-          <a href="">
+          <a href="{% url 'fournisseurs' %}" class="{% if url_name == 'fournisseurs' or url_name == 'add_fournisseur' or url_name == 'update_fournisseur' %}active{% endif %}">
             <i class="bi bi-people"></i>
-            <span class="links_name">fournisseurs</span>
+            <span class="links_name">fournisseurs <span style="font-family:cursive;font-weight: bold   ;"> {% if url_name == 'fournisseurs' %}({{ countfr }}){% endif %}  </span></span>
           </a>
         </li>
         
         <li>
-          <a href="">
+          <a href="{% url 'parametre' %}" class="{% if url_name == 'parametre' or url_name == 'del' or url_name == 'done' %}active{% endif %}">
             <i class='bx bx-cog' ></i>
             <span class="links_name">Parametre</span>
           </a>
@@ -81,7 +81,7 @@
      
         <span class="admin_name" >
          
-           <p> {{ name }} </p> 
+           <p style="font-size: 19px;margin-top: 12px;"> {{ user.username }}  </p> 
 
         </span>
        
@@ -94,7 +94,7 @@
         
         <div class="box">
           <div class="right-side">
-            <h1>{% block titre %}{% endblock %}  </h1>
+            <h4>  {% block titre %}{% endblock %}</h4>
            
           </div>
    

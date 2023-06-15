@@ -1,0 +1,22 @@
+
+{% extends "base.html" %}
+{% block title %}Parametre{% endblock %}
+{% block titre %} Parametre{% endblock %}
+{% block head %}Gestion des Parametre{% endblock%}
+{% load crispy_forms_tags %} 
+{% block content %}
+
+<div  style="margin-left: 30%;margin-top: 5%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+    <div class="alert alert-success">password changed</div>
+  <h2 style="margin-top: -16%;padding-bottom: 50px;"> Change Password :</h2>
+<form action="" method="post">
+    {% csrf_token %}
+
+   
+      <input style="text-align:center ;margin-top: -7%;" class="form-control" id="floatingInput" type="text" value="{{ user.username }}" readonly><br><br>
+      <a href="" >
+        <a href="{% url 'product' %}" class="btn btn-primary" style="width: 40%;margin-left: 30%;margin-top: 40px;">BACK</a>
+</form>
+</div>
+
+{% endblock%}

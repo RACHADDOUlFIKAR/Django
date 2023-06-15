@@ -29,15 +29,15 @@
       <td>{{pro.prix}} DH</td>
     
       {% endfor %}
-      {% else %}
-      <tr>
-        <td>Ce Livre N'existe pas</td>
-      </tr>
+      
       
     </tr>
     
       
-    
+    {% else %}
+<tr>
+  <td>Ce Livre N'existe pas</td>
+</tr>
     {% endif %}
          <tr>
            <td></td>
@@ -50,9 +50,9 @@
 <div style="margin-top: 50px;">
 <div class="card" style="width: 15%;position: absolute;left: 10%;">
   <i class="fa fa-tasks fa-5x " style="text-align: center;padding: 30px;font-size: 1000%;color: #1ABC9C;"></i>  <div class="card-body">
-    <h5 class="card-title" style="text-align: center;">Totale Arcticles</h5>
-    <p class="card-text"><b></b></p>
-    <a href="" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
+    <h5 class="card-title" style="text-align: center;">Totale Auteurs</h5>
+    <p class="card-text"style="text-align: center;font-size: 40px;"><b>{{ countAT }}</b></p>
+    <a href="{% url 'authors' %}" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
   </div>
 
 
@@ -61,8 +61,8 @@
   <i  class="fa fa-users fa-5x" style="text-align: center;padding: 30px;font-size: 1000%;color: #1ABC9C;"></i>
   <div class="card-body">
     <h5 class="card-title" style="text-align: center;">Totale Fournisseurs</h5>
-    <p class="card-text"><b></b></p>
-    <a href="" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
+    <p class="card-text"style="text-align: center;font-size: 40px;"><b>{{ countfr }}</b></p>
+    <a href="{% url 'fournisseurs' %}" class="btn btn-primary" style="margin-left:55px ;">voir détail</a>
   </div>
 
 

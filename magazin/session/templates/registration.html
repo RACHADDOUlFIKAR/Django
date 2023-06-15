@@ -13,14 +13,14 @@
     <form action="" method="POST">
     {% csrf_token %}
         <p class="error"></p>
-      <input type="text" id="login" name="name" class="fadeIn second"  placeholder="Name">
-      <input type="text" id="login" name="mail" class="fadeIn second"  placeholder="Username">
-      <input type="text" id="login" name="cin" class="fadeIn second"  placeholder="CIN">
-      <input type="password" id="password" name="psswd" class="fadeIn third"  placeholder="Password">
+      <input type="text" id="login" name="name" class="fadeIn second"  placeholder="Name" required>
+      <input type="text" id="login" name="mail" class="fadeIn second"  placeholder="Username" required>
+      <input type="text" id="login" name="cin" class="fadeIn second"  placeholder="CIN" required>
+      <input type="password" id="password" name="psswd" class="fadeIn third"  placeholder="Password" required>
       <input type="submit" name="ver" class="fadeIn fourth" value="Sign up">
     </form>
     <div id="formFooter">
-      <a class="underlineHover" href="#">Have you an account ?</a>
+      <a class="underlineHover" href="{% url 'connexion' %}">Have you an account ?</a>
     </div>
   </div>
 </div>

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Ajouter Fournisseur{% endblock %}
+{% block titre %} Ajouter Fournisseur{% endblock %}
+{% block head %}Ajouter Fournisseur{% endblock%}
+{% load crispy_forms_tags %} 
+{% block content %} 
+<div  style="margin-left: 29%;margin-top: 3%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+  <h4 style="padding-bottom: 20px;text-align: center;margin-top: -8%;"> Add Fournisseurs :</h4>
+    <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form|crispy }}
+        <br>
+        
+		<button type="submit" class="btn btn-primary" style="width: 30%;margin-left: 32%;">Enregister</button>
+    <form>
+</div>
+  
+{% endblock %}

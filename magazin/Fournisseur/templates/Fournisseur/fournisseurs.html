@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}Fournisseurs{% endblock %}
+{% block head %}Fournisseurs{% endblock%}
+{% block titre %}Fournisseurs{% endblock %}
+{% block search %} 
+<form >
+    <div class="search-box">
+      <input type="text"  placeholder="Search..." name="Search">
+      <a ><button name="" class='bx bx-search' ></button> </a>
+    </div>
+</form>{% endblock %}
+
+  {% block content %} 
+  <tr><a href="/addfourn" class="w3-button w3-blue" >Ajouter un Fournisseur </a>  <i class="fa fa-plus" style="color:#61B2FB;padding-left: 5px;font-size: 14px;font-weight: 500;"></i></button>
+<div class="table-wrapper">
+    <table class="fl-table">
+    <th>Id</th>
+    <th>Nom</th>
+    <th>Téléphone</th>
+    <th>Adresse</th>
+    <th>Cin</th>
+    <th>Email</th>
+    <th>Opération</th>
+    {% if fourn_data %}
+{% for fr in fourn_data %}
+<tr>
+<td>{{fr.Id}}</td>
+<td>{{fr.Nom}}</td>
+<td>{{fr.Tel}}</td>
+<td>{{fr.Adresse}}</td>
+<td>{{fr.Cin}}</td>
+<td>{{fr.Email}}</td>
+<td ><a href="{% url 'update_fournisseur' fr.Id %}" class="btn btn-outline-success" >Modifier</a> 
+<a href="delete_fourn/{{fr.Id}}" class="btn btn-outline-danger" onclick="return confirm('vous voulez vraiment supprimer ce fournisseur?');"> Supprimer</a> 
+</td>
+  
+  </tr>{% endfor %}
+  {% else %}
+<tr>
+  <td>Ce Livre N'existe pas</td>
+</tr>
+{% endif %}{% endblock %}
+  

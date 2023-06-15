@@ -4,7 +4,8 @@
 {% block head %}Ajouter un Auteur{% endblock%}
 {% load crispy_forms_tags %} 
 {% block content %} 
-<div  style="width: 500px;margin-left: 31%;">
+<div  style="margin-left: 29%;margin-top: 3%;background-color: white;width: 600px;padding: 60px;border-radius: 30px;">
+  <h4 style="padding-bottom: 20px;text-align: center;margin-top: -8%;"> Add authors :</h4>
     <form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
 		{{ form|crispy }}
